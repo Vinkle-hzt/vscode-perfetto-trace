@@ -1,12 +1,14 @@
 // Copyright (c) Indrajit Banerjee
 // Licensed under the MIT License.
 
-export enum WebviewConsts {
-  PerfettoOrigin = "https://ui.perfetto.dev",
-  PerfettoFrameId = "perfetto-ui-iframe",
-  VsCodeUiReadyCommand = "vscode-ui-ready",
-  VsCodeLoadTraceCommand = "vscode-load-trace",
-  VsCodeTraceLoadedCommand = "vscode-load-trace-complete",
+import * as vscode from 'vscode';
+
+export const WebviewConsts = {
+  PerfettoOrigin: vscode.workspace.getConfiguration("perfetto-trace").get<string>("path") ?? "",
+  PerfettoFrameId: "perfetto-ui-iframe",
+  VsCodeUiReadyCommand: "vscode-ui-ready",
+  VsCodeLoadTraceCommand: "vscode-load-trace",
+  VsCodeTraceLoadedCommand: "vscode-load-trace-complete",
 };
 
 export enum Commands {
